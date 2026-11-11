@@ -1,0 +1,19 @@
+{
+  "titel": "Lernseiten",
+  "namen": {
+    "grs": "Grundstufe Tiefbau",
+    "grs/lf2": "LF 2 – Bauwerke erschließen und gründen"
+  },
+  "seiten": [
+    {
+      "pfad": "grs/lf2/ls1/",
+      "titel": "LS 2.1 Baugrube planen – Lösungsstation",
+      "fassung": "Arbeitsheft v5",
+      "stand": "2026-11-11",
+      "status": "online",
+      "gelistet": true,
+      "quelle": "CO GRS\\LF 2 - Bauwerke erschließen und gründen\\LS 2.1 Baugrube planen - v5 (in Arbeit)\\_Upload-GitHub",
+      "auch_unter": "https://oszbau.github.io/ls21/"
+    }
+  ]
+}
