@@ -2,7 +2,9 @@
   "titel": "Lernseiten",
   "namen": {
     "grs": "Grundstufe Tiefbau",
-    "grs/lf2": "LF 2 – Bauwerke erschließen und gründen"
+    "grs/lf2": "LF 2 – Bauwerke erschließen und gründen",
+    "fhr": "Fachhochschulreife",
+    "fhr/mathe": "Mathematik"
   },
   "seiten": [
     {
@@ -14,6 +16,15 @@
       "gelistet": true,
       "quelle": "CO GRS\\LF 2 - Bauwerke erschließen und gründen\\LS 2.1 Baugrube planen - v5 (in Arbeit)\\_Upload-GitHub",
       "auch_unter": "https://oszbau.github.io/ls21/"
+    },
+    {
+      "pfad": "fhr/mathe/pruefungstraining/",
+      "titel": "Prüfungstraining Mathematik",
+      "fassung": "Lernseite",
+      "stand": "2026-11-11",
+      "status": "online",
+      "gelistet": true,
+      "quelle": "3. FHR-DQ - Mathe - GÜR\\000. CO\\FHR-Pruefungstraining\\_Upload-GitHub"
     }
   ]
 }
