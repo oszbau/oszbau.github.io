@@ -18,6 +18,15 @@
       "auch_unter": "https://oszbau.github.io/ls21/"
     },
     {
+      "pfad": "grs/lf2/ls2b/",
+      "titel": "LS 2.2 Gründung und Entwässerung",
+      "fassung": "Auftragsheft (Buchfassung)",
+      "stand": "2026-11-16",
+      "status": "online",
+      "gelistet": true,
+      "quelle": "CO GRS\\LF 2 - Bauwerke erschließen und gründen\\LS 2.2 Gründen und entwässern - GRS26.4B (Buchfassung)\\_Upload-GitHub"
+    },
+    {
       "pfad": "fhr/mathe/pruefungstraining/",
       "titel": "Prüfungstraining Mathematik",
       "fassung": "Lernseite",
