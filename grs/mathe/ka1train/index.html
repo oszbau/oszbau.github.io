@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Tolga Guerdal">
+<title>KA-Training Mathematik: Blatt 1 bis 6</title>
+<style>
+:root{--blau:#1f3a5f;--rot:#c00000;--h1:#2e7d32;--h2:#b58900;--h3:#c62828;--rand:#d0d0d0;--grau:#555;--bg:#f6f6f4}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Arial,Helvetica,"Segoe UI",sans-serif;font-size:17px;line-height:1.45;color:#111;background:var(--bg)}
+header{background:var(--blau);color:#fff;padding:10px 14px;position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px}
+header h1{font-size:17px;margin:0;flex:1}
+#uhr{font-weight:bold;font-variant-numeric:tabular-nums;background:#fff;color:var(--blau);border-radius:6px;padding:4px 8px;font-size:15px;white-space:nowrap}
+#uhr:empty{display:none}
+main{max-width:760px;margin:0 auto;padding:12px 12px 90px}
+.card{background:#fff;border:1px solid var(--rand);border-radius:10px;padding:12px 14px;margin:10px 0}
+h2{font-size:19px;margin:0 0 8px;color:var(--blau)}
+h2 .pkt{display:block;font-size:14px;font-weight:normal;color:var(--grau)}
+p{margin:6px 0}ul{margin:6px 0;padding-left:22px}li{margin:4px 0}
+.klein{font-size:14px;color:var(--grau)}
+.knopfe{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button{font:inherit;font-size:16px;padding:10px 14px;border-radius:8px;border:2px solid #999;background:#fff;color:#111;cursor:pointer;min-height:44px}
+button[disabled]{opacity:.45;cursor:default}
+button.haupt{background:var(--blau);border-color:var(--blau);color:#fff;font-weight:bold;flex:1 1 100%}
+button.pruef{background:var(--blau);border-color:var(--blau);color:#fff;font-weight:bold;flex:1 1 100%}
+button.hilfeknopf{flex:1 1 30%;font-size:15px;padding:10px 4px;white-space:nowrap}
+button.hilfeknopf.naechste{color:#fff;font-weight:bold}
+button.hilfeknopf.naechste.b1{background:var(--h1);border-color:var(--h1)}
+button.hilfeknopf.naechste.b2{background:var(--h2);border-color:var(--h2);color:#222}
+button.hilfeknopf.naechste.b3{background:var(--h3);border-color:var(--h3)}
+button.hilfeknopf.erledigt{background:#f4f4f4;font-weight:600}
+button.wegknopf{flex:1 1 100%;border-color:var(--rot);color:var(--rot);font-weight:bold}
+.nav{display:flex;gap:8px;align-items:center;margin:8px 0}
+.nav button{flex:0 0 auto;min-width:48px;font-weight:bold;color:var(--blau);border-color:var(--blau)}
+.nav .mitte{flex:1;text-align:center;font-weight:bold;color:var(--blau)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chips button{min-height:40px;min-width:40px;padding:6px 8px;font-size:15px}
+.chips button.hier{background:var(--blau);color:#fff;border-color:var(--blau)}
+.chips button.da{border-color:var(--h1);box-shadow:inset 0 -4px 0 var(--h1)}
+.block{border-top:1px solid var(--rand);margin-top:12px;padding-top:10px}
+.teil{margin:6px 0}
+.reihe{display:block;font-weight:bold;margin:6px 0 6px 14px}
+.ersatz{background:#fff8e1;border-left:4px solid var(--h2);padding:6px 10px;border-radius:4px;font-style:italic}
+.feld{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.feld label{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+input[type=text]{font:inherit;font-size:18px;width:7.2em;padding:8px;border:2px solid #777;border-radius:8px;background:#fff}
+input.ok{border-color:var(--h1);background:#eef7ee}input.falsch{border-color:var(--h3);background:#fdeeee}
+.mark{font-weight:bold;font-size:15px}.mark.ok{color:var(--h1)}.mark.falsch{color:var(--h3)}
+.gitter{display:grid;grid-template-columns:1fr;gap:2px 16px}
+@media(min-width:640px){.gitter{grid-template-columns:1fr 1fr}}
+.opt{display:flex;align-items:center;gap:10px;padding:9px 10px;border:1px solid var(--rand);border-radius:8px;margin:6px 0;cursor:pointer}
+.opt input{width:22px;height:22px;flex:0 0 auto}
+.opt.ok{border-color:var(--h1);background:#eef7ee}.opt.falsch{border-color:var(--h3);background:#fdeeee}
+figure{margin:8px 0;text-align:center}figcaption{font-size:14px;font-weight:bold}
+svg.bild{width:100%;max-width:400px;height:auto;display:block;margin:0 auto}
+svg.bild text{font:bold 15px Arial,Helvetica,sans-serif;fill:#111}
+svg.bild .k{stroke:#111;stroke-width:2.2;fill:none}svg.bild .f{fill:#e9e9e9}
+svg.bild .d{stroke:#111;stroke-width:1.2;fill:none}svg.bild .s{stroke:#111;stroke-width:1.4;stroke-dasharray:6 5;fill:none}
+svg.bild .sand{fill:#cfcfcf;stroke:#111;stroke-width:1}svg.bild .rohr{fill:#fff}
+.fb{margin:8px 0;font-weight:bold}.fb.ok{color:var(--h1)}.fb.falsch{color:var(--h3)}
+.hilfe{border-left:6px solid var(--h1);background:#f3f8f3;padding:8px 10px;border-radius:4px;margin:8px 0}
+.hilfe.h2{border-color:var(--h2);background:#fbf7ea}.hilfe.h3{border-color:var(--h3);background:#fbf0f0}
+.loes{border:2px solid var(--rot);border-radius:8px;margin:10px 0;overflow:hidden}
+.loes-kopf{background:var(--rot);color:#fff;font-weight:bold;padding:6px 10px}
+.loes .zeile{padding:6px 10px;border-top:1px solid #f0d0d0}
+.fo{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:18px;background:#f1f4f8;border:1px solid #d5dbe5;border-radius:4px;padding:1px 6px;display:inline-block;margin:2px 0}
+details{margin:10px 0}summary{cursor:pointer;font-weight:bold;color:var(--blau);padding:8px 0}
+table.form{border-collapse:collapse;width:100%}table.form td{border:1px solid var(--rand);padding:6px 8px;vertical-align:top}
+table.erg{border-collapse:collapse;width:100%;font-size:16px}table.erg td,table.erg th{border-bottom:1px solid var(--rand);padding:6px 4px;text-align:left}
+table.erg td.z,table.erg th.z{text-align:right;white-space:nowrap}
+.gross{font-size:26px;font-weight:bold;color:var(--blau)}
+.ueb{background:#fff8e1;border-radius:6px;padding:6px 10px;margin:6px 0}
+.liste button{flex:1 1 100%;text-align:left}
+.liste .z{float:right;color:var(--h1);font-size:14px}
+.leer{display:inline-block;min-width:6em;border-bottom:1.5px solid #111;height:1.3em;vertical-align:bottom}
+.rechenfeld{border:1px solid #999;height:1.7cm;margin:6px 0;border-radius:4px}.eu{white-space:nowrap}
+.nurdruck{display:none}
+@media print{header,.nodruck,.nav,.chips{display:none!important}body{background:#fff;font-size:10.5pt;line-height:1.3}main{max-width:none;padding:0}.card{border:0;border-bottom:1px solid #999;border-radius:0;padding:3px 0;margin:4px 0}.block{break-inside:avoid;margin-top:5px;padding-top:4px}.feld{margin:3px 0}.rechenfeld{height:1.4cm}p{margin:3px 0}.nurdruck{display:block}svg.bild{max-width:5.5cm}figure{margin:2px 0}.card h2{font-size:13pt}}
+</style>
+</head>
+<body>
+<header><h1>KA-Training Mathematik</h1><span id="uhr"></span></header>
+<main id="app"></main>
+<script>
+'use strict';
+/* KA-Training Mathematik, Blatt 1 bis 6. Eine Datei, keine fremden Adressen. Autor: Tolga Guerdal */
+const KEY='grs-mathe-ka1train-v1',DAUER=80,NB=' ';
+
+/* ---------- Zahlen ---------- */
+function fx(x,n){const f=Math.pow(10,n);return Math.round(x*f+(x>=0?1e-7:-1e-7))/f}
+function grp(g){return g.length>3?g.replace(/\B(?=(\d{3})+(?!\d))/g,NB):g}
+function de(x,n){if(n===undefined)n=2;let s=fx(x,n).toFixed(n),neg=s[0]==='-';if(neg)s=s.slice(1);const p=s.split('.');return(neg?'−':'')+grp(p[0])+(p[1]?','+p[1]:'')}
+function kz(x){let s=fx(x,4).toFixed(4).replace(/0+$/,'').replace(/\.$/,''),neg=s[0]==='-';if(neg)s=s.slice(1);const p=s.split('.');return(neg?'−':'')+grp(p[0])+(p[1]?','+p[1]:'')}
+function lies(s){if(s==null)return NaN;s=String(s).replace(/[\s ]/g,'').replace('−','-');if(s==='')return NaN;
+  if(s.indexOf(',')>=0)s=s.replace(/\./g,'').replace(',','.');else if(/^\d{1,3}(\.\d{3})+$/.test(s))s=s.replace(/\./g,'');
+  const m=s.match(/^-?\d+(\.\d+)?/);return m?parseFloat(m[0]):NaN}
+function ok(v,soll,tol){return isFinite(v)&&Math.abs(v-soll)<=tol+1e-9}
+const LEN={mm:1,cm:10,dm:100,m:1000,km:1e6},FL={'mm²':1,'cm²':100,'dm²':1e4,'m²':1e6};
+function um(v,a,b){const T=a in LEN?LEN:FL;return fx(v*T[a]/T[b],6)}
+const M=x=>de(x)+NB+'m',M2=x=>de(x)+NB+'m²',M3=x=>de(x)+NB+'m³',E=(x,u)=>kz(x)+NB+u;
+const fo=s=>'<span class="fo">'+s+'</span>';
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+const ri=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[ri(0,a.length-1)];
+const step=(a,b,s)=>fx(a+s*ri(0,Math.round((b-a)/s)),4);
+
+/* ---------- Skizzen (SVG) ---------- */
+const svg=(w,h,i)=>`<svg viewBox="0 0 ${w} ${h}" class="bild" role="img" xmlns="http://www.w3.org/2000/svg">${i}</svg>`;
+const tx=(x,y,t,a)=>`<text x="${x}" y="${y}" text-anchor="${a||'middle'}">${t}</text>`;
+const tick=(x,y)=>`<line x1="${x-4}" y1="${y+4}" x2="${x+4}" y2="${y-4}" class="d"/>`;
+const massH=(x1,x2,y,t,pos)=>`<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" class="d"/>${tick(x1,y)}${tick(x2,y)}${tx((x1+x2)/2,pos==='u'?y+18:y-7,t)}`;
+const massV=(x,y1,y2,t,s)=>`<line x1="${x}" y1="${y1}" x2="${x}" y2="${y2}" class="d"/>${tick(x,y1)}${tick(x,y2)}${tx(s==='l'?x-8:x+8,(y1+y2)/2+5,t,s==='l'?'end':'start')}`;
+function bild2(d){return{cap:'Maße in m und cm; Rohrdurchmesser in mm',svg:svg(320,238,
+  `<line x1="15" y1="40" x2="105" y2="40" class="k"/><line x1="215" y1="40" x2="305" y2="40" class="k"/><polyline points="105,40 105,205 215,205 215,40" class="k"/>`+
+  `<rect x="105" y="183" width="110" height="22" class="sand"/><circle cx="160" cy="159" r="24" class="k rohr"/>`+
+  massV(245,40,205,de(d.tiefe),'r')+massV(80,183,205,kz(d.sand),'l')+massV(160,40,135,'x','r')+tx(160,230,'Rohr Ø '+kz(d.rohr)+' mm'))}}
+function bild3(d){const re=fx(d.B-d.ch,4),ob=fx(d.L-d.cw,4),x0=60,y0=38,W=210,H=150,cw=d.cw*W/d.L,ch=d.ch*H/d.B;
+  const p=[[x0,y0+H],[x0+W,y0+H],[x0+W,y0+ch],[x0+W-cw,y0+ch],[x0+W-cw,y0],[x0,y0]].map(q=>fx(q[0],1)+','+fx(q[1],1)).join(' ');
+  return{cap:'Hof von oben; Maße in m',svg:svg(340,225,`<polygon points="${p}" class="k f"/>`+tx(x0+W/2,y0+H+20,de(d.L))+tx(x0+W+8,fx(y0+ch+(H-ch)/2+5,1),de(re),'start')+
+  tx(fx(x0+W-cw/2,1),fx(y0+ch+18,1),de(d.cw))+tx(fx(x0+W-cw-8,1),fx(y0+ch/2+5,1),de(d.ch),'end')+tx(fx(x0+(W-cw)/2,1),y0-8,de(ob))+tx(x0-8,y0+H/2+5,de(d.B),'end'))}}
+function bild4(d,nr){return{cap:'Lageplan M 1 : 500; Planmaße in cm; ablesen, nicht messen',svg:svg(340,215,
+  `<rect x="20" y="165" width="300" height="36" class="f"/>`+tx(170,189,'Tannenstraße')+`<rect x="80" y="45" width="170" height="120" class="k" style="fill:#fff"/>`+tx(165,112,'Nr. '+nr)+
+  massH(80,250,28,kz(d.plan[0])+' cm','o')+massV(275,45,165,kz(d.plan[1])+' cm','r'))}}
+function bild6(d){return{cap:'Querschnitt des Damms; Maße in m',svg:svg(340,208,`<polygon points="30,165 310,165 220,65 120,65" class="k f"/>`+massH(120,220,45,de(d.kr),'o')+
+  `<line x1="170" y1="65" x2="170" y2="165" class="s"/>`+tx(178,120,de(d.h),'start')+tx(84,100,'1 : 1,5','end')+tx(256,100,'1 : 1,5','start')+massH(30,310,186,'?','u'))}}
+function bild7(d){const x0=55,y0=45,W=230,H=140,a=fx((d.L-d.ob)*W/d.L,1),b=fx((d.B-d.re)*H/d.B,1);
+  return{cap:'Stellfläche von oben; Maße in m',svg:svg(340,215,`<polygon points="${x0},${y0} ${x0+W-a},${y0} ${x0+W},${y0+b} ${x0+W},${y0+H} ${x0},${y0+H}" class="k f"/>`+
+  `<polyline points="${x0+W-a},${y0} ${x0+W},${y0} ${x0+W},${y0+b}" class="s"/>`+tx(x0+W/2,y0+H+20,de(d.L))+tx(x0-8,y0+H/2+5,de(d.B),'end')+tx(fx(x0+(W-a)/2,1),y0-8,de(d.ob))+tx(x0+W+8,fx(y0+b+(H-b)/2+5,1),de(d.re),'start'))}}
+function bild8(d){return{cap:'Wendeplatz von oben; Maße in m',svg:svg(340,190,`<path d="M250,45 L60,45 L60,155 L250,155 A55,55 0 0 0 250,45" class="k f"/><line x1="250" y1="45" x2="250" y2="155" class="s"/>`+
+  tx(155,37,de(d.ra))+tx(52,105,de(d.rb),'end'))}}
+function bildZ(d){return{cap:'Schachtring von oben; Maße in m und cm',svg:svg(280,235,`<circle cx="140" cy="120" r="92" class="k f"/><circle cx="140" cy="120" r="68" class="k" style="fill:#fff"/>`+
+  massH(72,208,120,de(d.di),'o')+massH(208,232,120,kz(d.wand),'u'))}}
+
+/* ---------- Aufgaben ---------- */
+function F(soll,nach,p,o){o=o||{};return{soll:soll,nach:nach,p:p,tol:o.tol||0.005,vor:o.vor||'',alt:o.alt||[],folge:o.folge||null,fmt:o.fmt||'de'}}
+function zeig(f){return(f.fmt==='kz'?kz(f.soll):de(f.soll))+(f.nach?NB+f.nach:'')}
+const BU='abcdefghij';
+
+function A1(a){
+  const teile=a.map((z,i)=>({k:BU[i],felder:[F(um(z[0],z[1],z[2]),z[2],1,{vor:E(z[0],z[1])+' =',fmt:'kz'})]}));
+  const weg=a.map((z,i)=>{const T=z[1] in LEN?LEN:FL,f=T[z[1]]/T[z[2]];return `${BU[i]}) ${E(z[0],z[1])} ${f>1?'· '+kz(f):': '+kz(1/f)} = <b>${E(um(z[0],z[1],z[2]),z[2])}</b>`});
+  return{nr:'1',titel:'Einheiten umrechnen',pkt:10,uebe:'Blatt 1, Aufgabe 1; Blatt 2, Aufgabe 1',kopf:'<b>Rechne um.</b> Trage das Ergebnis in das Feld ein.',
+    bloecke:[{raster:true,teile:teile,hilfen:['Längen: mm → cm → dm → m. Von Stufe zu Stufe ist es der Faktor 10; von m zu km der Faktor 1'+NB+'000.',
+      'Flächen: mm² → cm² → dm² → m². Von Stufe zu Stufe ist es der Faktor 100.',
+      'Zur kleineren Einheit: mal rechnen, die Zahl wird größer. Zur größeren Einheit: geteilt rechnen, die Zahl wird kleiner.'],weg:weg}]}}
+
+function A2(d,nr){
+  const inM=d.teile.map(t=>um(t[0],t[1],'m')),sum=fx(inM.reduce((x,y)=>x+y,0),4),s=um(d.sand,'cm','m'),r=um(d.rohr,'mm','m'),x=fx(d.tiefe-s-r,4);
+  const reihe=d.teile.map(t=>(t[1]==='m'?de(t[0]):kz(t[0]))+NB+t[1]).join('; ');
+  const wegA=[];d.teile.forEach((t,i)=>{if(t[1]!=='m')wegA.push(`${E(t[0],t[1])} = ${M(inM[i])}`)});wegA.push(inM.map(M).join(' + ')+` = <b>${M(sum)}</b>`);
+  return{nr:'2',titel:'Leitung und Rohr im Graben',pkt:9,uebe:'Blatt 1, Aufgabe 3 und 4',kopf:`Baustelle Tannenstraße Nr.${NB}${nr}: Die Kolonne verlegt eine neue Leitung.`,bloecke:[
+    {teile:[{k:'a',text:`Der Polier misst die Leitung in vier Teilstücken:<span class="reihe">${reihe}</span><b>Berechne</b> die Gesamtlänge der Leitung in m.`,felder:[F(sum,'m',5)]}],
+     hilfen:['Rechne zuerst jedes Teilstück einzeln in Meter um.','cm → m: geteilt durch 100; mm → m: geteilt durch 1'+NB+'000; dm → m: geteilt durch 10.','Addiere dann die vier Längen in Meter.'],weg:wegA},
+    {teile:[{k:'b',text:'Ein Rohr liegt im Graben auf einem Sandbett (Skizze). <b>Berechne</b> die Überdeckung x in m. Die Überdeckung ist der Abstand von der Rohroberkante bis zur Geländeoberkante.',bild:bild2(d),felder:[F(x,'m',4,{vor:'x ='})]}],
+     hilfen:['Bringe alle drei Maße in Meter: Grabentiefe, Sandbett und Rohrdurchmesser.','Das Rohr liegt auf dem Sandbett. Unter der Rohroberkante liegen also das Sandbett und das Rohr.',fo('x = Grabentiefe − Sandbett − Rohrdurchmesser')],
+     weg:[`Sandbett: ${E(d.sand,'cm')} = ${M(s)}`,`Rohr: ${E(d.rohr,'mm')} = ${M(r)}`,`x = ${M(d.tiefe)} − ${M(s)} − ${M(r)} = <b>${M(x)}</b>`]}]}}
+
+function A3(d,nr){
+  const re=fx(d.B-d.ch,4),ob=fx(d.L-d.cw,4),r1=fx(d.L*re,4),r2=fx(ob*d.ch,4),A=fx(r1+r2,4),U=fx(2*d.L+2*d.B,4),st=fx(A*49,2),stE=fx(d.ers*49,2);
+  return{nr:'3',titel:'Hof pflastern',pkt:12,uebe:'Blatt 2, Aufgabe 2 bis 4',kopf:`Hinter dem Haus Nr.${NB}${nr} wird der Hof neu gepflastert. Die Skizze zeigt den Hof von oben.`,bild:bild3(d),bloecke:[
+    {teile:[{k:'a',text:'<b>Zerlege</b> den Hof in zwei Rechtecke. <b>Berechne</b> die Fläche des Hofs in m².',felder:[F(A,'m²',6)]}],
+     hilfen:['Zeichne am Einschnitt eine waagerechte Linie. So entstehen zwei Rechtecke.','Unteres Rechteck: untere Seite mal rechte Seite. Oberes Rechteck: obere Seite mal Einschnitt senkrecht.','Rechteck: '+fo('A = a · b')+' Addiere beide Flächen.'],
+     weg:[`Rechteck 1 (unten): ${M(d.L)} · ${M(re)} = ${M2(r1)}`,`Rechteck 2 (oben): ${M(ob)} · ${M(d.ch)} = ${M2(r2)}`,`A = ${M2(r1)} + ${M2(r2)} = <b>${M2(A)}</b>`]},
+    {teile:[{k:'b',text:'Der Hof bekommt rundherum eine Einfassung aus Randsteinen. <b>Berechne</b> die Länge der Einfassung in m.',felder:[F(U,'m',4)]}],
+     hilfen:['Die Einfassung läuft einmal außen herum. Das ist der Umfang.','Addiere alle sechs Seiten aus der Skizze.'],
+     weg:['U = '+[d.L,re,d.cw,d.ch,ob,d.B].map(M).join(' + ')+` = <b>${M(U)}</b>`]},
+    {ersatz:`Falls a) fehlt: Rechne in c) mit ${M2(d.ers)} weiter.`,teile:[{k:'c',text:'Für 1'+NB+'m² Pflaster braucht man 49 Steine. <b>Berechne</b> die Anzahl der Steine für den Hof.',felder:[F(st,'Steine',2,{fmt:'kz',tol:0.5,alt:[{v:stE}],folge:a=>a['3a0']*49})]}],
+     hilfen:['Du brauchst die Fläche aus a). Fehlt sie dir, nimm den Ersatzwert.',fo('Steine = Fläche · 49 Steine je m²')],
+     weg:[`${M2(A)} · 49 Steine/m² = <b>${kz(st)} Steine</b>`,`Mit dem Ersatzwert: ${M2(d.ers)} · 49 Steine/m² = ${kz(stE)} Steine`]}]}}
+
+function A4(d,nr){
+  const ras=[],wegR=[];
+  d.r.forEach((z,i)=>{if(z[1]==='P'){const w=fx(z[2]*z[0]/100,4);ras.push({k:BU[i],felder:[F(w,'m',1,{vor:`1 : ${z[0]}; P = ${E(z[2],'cm')}; W =`})]});wegR.push(`${BU[i]}) ${E(z[2],'cm')} · ${z[0]} = ${E(z[2]*z[0],'cm')} = <b>${M(w)}</b>`)}
+    else{const p=fx(z[2]*100/z[0],4);ras.push({k:BU[i],felder:[F(p,'cm',1,{vor:`1 : ${z[0]}; W = ${M(z[2])}; P =`,fmt:'kz'})]});wegR.push(`${BU[i]}) ${M(z[2])} = ${E(z[2]*100,'cm')}; ${E(z[2]*100,'cm')} : ${z[0]} = <b>${E(p,'cm')}</b>`)}});
+  const ms=fx(d.d[0]*100/d.d[1],4);ras.push({k:'d',felder:[F(ms,'',1,{vor:`W = ${M(d.d[0])}; P = ${E(d.d[1],'cm')}; Maßstab 1 :`,fmt:'kz'})]});
+  wegR.push(`d) ${M(d.d[0])} = ${E(d.d[0]*100,'cm')}; ${E(d.d[0]*100,'cm')} : ${E(d.d[1],'cm')} = ${kz(ms)}; Maßstab <b>1 : ${kz(ms)}</b>`);
+  const Lw=fx(d.plan[0]*5,4),Bw=fx(d.plan[1]*5,4),A=fx(Lw*Bw,4),AE=fx(d.ers[0]*d.ers[1],4);
+  return{nr:'4',titel:'Maßstab',pkt:11,uebe:'Blatt 3, Aufgabe 1, 2 und 4',kopf:'<b>Rechne um.</b> P = Maß im Plan; W = Maß in Wirklichkeit.',bloecke:[
+    {raster:true,teile:ras,hilfen:['Plan → Wirklichkeit: mal Maßstabszahl. Wirklichkeit → Plan: geteilt durch Maßstabszahl.','Rechne erst, wandle dann die Einheit um: 100'+NB+'cm = 1'+NB+'m.','Maßstab bestimmen: beide Maße in dieselbe Einheit bringen; dann wirkliches Maß geteilt durch Planmaß.'],weg:wegR},
+    {kopf:`Der Lageplan vom Amt zeigt das Grundstück Nr.${NB}${nr} im Maßstab 1 : 500. Die Planmaße stehen in der Skizze.`,bild:bild4(d,nr),
+     teile:[{k:'e',text:'<b>Berechne</b> die wirkliche Länge und die wirkliche Breite des Grundstücks in m.',felder:[F(Lw,'m',2,{vor:'Länge:'}),F(Bw,'m',2,{vor:'Breite:'})]}],
+     hilfen:['Maßstab 1 : 500 heißt: 1'+NB+'cm im Plan sind 500'+NB+'cm in Wirklichkeit.',fo('wirkliches Maß = Planmaß · 500')+' Das Ergebnis steht in cm.','Wandle cm in m um: geteilt durch 100.'],
+     weg:[`Länge: ${E(d.plan[0],'cm')} · 500 = ${E(d.plan[0]*500,'cm')} = <b>${M(Lw)}</b>`,`Breite: ${E(d.plan[1],'cm')} · 500 = ${E(d.plan[1]*500,'cm')} = <b>${M(Bw)}</b>`]},
+    {ersatz:`Falls e) fehlt: Rechne in f) mit ${M(d.ers[0])} und ${M(d.ers[1])} weiter.`,teile:[{k:'f',text:'<b>Berechne</b> die Fläche des Grundstücks in m².',felder:[F(A,'m²',3,{alt:[{v:AE}],folge:a=>a['4e0']*a['4e1']})]}],
+     hilfen:['Das Grundstück ist ein Rechteck: '+fo('A = a · b'),'Nimm die wirklichen Maße aus e), nicht die Planmaße. Fehlen sie dir, nimm die Ersatzwerte.'],
+     weg:[`A = a · b = ${M(Lw)} · ${M(Bw)} = <b>${M2(A)}</b>`,`Mit den Ersatzwerten: ${M(d.ers[0])} · ${M(d.ers[1])} = ${M2(AE)}`]}]}}
+
+function A5(d){
+  const a=d.a,ges=a.m*a.n1,ra=a.m*a.n2,b=d.b,arb=b.typ==='arb',xp=arb?'Arbeiter':'m³ Ladung',ye=arb?'Tage':'Fahrten',prod=b.x1*b.y,rb=fx(prod/b.x2,4);
+  const tb=arb?`${b.x1} Arbeiter brauchen für das Pflastern einer Straße ${b.y} Tage. <b>Berechne</b> die Zeit für ${b.x2} Arbeiter.`:`Ein Lkw mit ${b.x1}${NB}m³ Ladung braucht für den Aushub ${b.y} Fahrten. <b>Berechne</b> die Zahl der Fahrten für einen Lkw mit ${b.x2}${NB}m³ Ladung.`;
+  const c=d.c,tl=1+c.n,ein=fx(c.kg/tl,4),sand=fx(ein*c.n,4),lose=fx(d.d*1.2,4),zu=fx(d.d*0.2,4);
+  return{nr:'5',titel:'Dreisatz, Mischung, Auflockerung',pkt:12,uebe:'Blatt 4, Aufgabe 1 bis 4',kopf:'<b>Rechne mit dem Dreisatz oder mit Teilen.</b> Prüfe vorher: mehr → mehr oder mehr → weniger.',bloecke:[
+    {teile:[{k:'a',text:`${a.n1} ${a.pl} wiegen zusammen ${E(ges,'kg')}. <b>Berechne</b> die Masse von ${a.n2} ${a.dat}.`,felder:[F(ra,'kg',3,{fmt:'kz'})]}],
+     hilfen:['Prüfe: mehr Stück → mehr Masse. Das ist proportional.','Zeile 2: Rechne auf 1 Stück zurück (geteilt).','Zeile 3: Rechne auf die gesuchte Stückzahl hoch (mal).'],
+     weg:[`${a.n1} ${a.pl} → ${E(ges,'kg')}`,`1 ${a.sg} → ${E(ges,'kg')} : ${a.n1} = ${E(a.m,'kg')}`,`${a.n2} ${a.pl} → ${E(a.m,'kg')} · ${a.n2} = <b>${E(ra,'kg')}</b>`]},
+    {teile:[{k:'b',text:tb,felder:[F(rb,ye,3,{fmt:'kz'})]}],
+     hilfen:[arb?'Prüfe: mehr Arbeiter → weniger Tage. Das ist antiproportional.':'Prüfe: mehr Ladung → weniger Fahrten. Das ist antiproportional.','Zeile 2: Auf 1 zurück heißt hier mal rechnen.','Zeile 3: Teile durch die gesuchte Anzahl.'],
+     weg:['mehr → weniger!',`${b.x1} ${xp} → ${b.y} ${ye}`,`1 ${xp} → ${b.y} ${ye} · ${b.x1} = ${kz(prod)} ${ye}`,`${b.x2} ${xp} → ${kz(prod)} ${ye} : ${b.x2} = <b>${kz(rb)} ${ye}</b>`]},
+    {teile:[{k:'c',text:`Für die Bettung wird Mörtel 1 : ${c.n} (Zement : Sand) gemischt. <b>Berechne</b>, wie viel Zement und wie viel Sand in ${E(c.kg,'kg')} Mörtel stecken.`,felder:[F(ein,'kg',1.5,{vor:'Zement:',fmt:'kz'}),F(sand,'kg',1.5,{vor:'Sand:',fmt:'kz'})]}],
+     hilfen:[`1 : ${c.n} heißt: 1 Teil Zement und ${c.n} Teile Sand. Zähle die Teile zusammen.`,fo('1 Teil = Gesamtmenge : Zahl der Teile'),`Zement = 1 Teil; Sand = ${c.n} Teile.`],
+     weg:[`1 + ${c.n} = ${tl} Teile`,`1 Teil = ${E(c.kg,'kg')} : ${tl} = ${E(ein,'kg')}`,`Zement: 1 · ${E(ein,'kg')} = <b>${E(ein,'kg')}</b>`,`Sand: ${c.n} · ${E(ein,'kg')} = <b>${E(sand,'kg')}</b>`]},
+    {teile:[{k:'d',text:`Der Leitungsgraben hat ${M3(d.d)} festen Boden. Gelöster Boden lockert sich um 20${NB}% auf (Faktor 1,20). <b>Berechne</b> das Volumen des losen Aushubs in m³.`,felder:[F(lose,'m³',3)]}],
+     hilfen:['Gelöster Boden braucht mehr Platz als fester Boden. Das Ergebnis muss größer sein.',fo('lose = fest · 1,20'),'Anderer Weg: 20'+NB+'% vom festen Boden ausrechnen und dazuzählen.'],
+     weg:[`lose = fest · 1,20 = ${M3(d.d)} · 1,20 = <b>${M3(lose)}</b>`,`Anderer Weg: ${M3(d.d)} · 20${NB}% : 100${NB}% = ${M3(zu)}; ${M3(d.d)} + ${M3(zu)} = ${M3(lose)}`]}]}}
+
+function A6(d){
+  const x=fx(1.5*d.h,4),fu=fx(d.kr+2*x,4),mb=fx((d.kr+fu)/2,4),A=fx(mb*d.h,4),mbE=fx((d.ers+d.kr)/2,4),AE=fx(mbE*d.h,4);
+  return{nr:'6',titel:'Straßendamm',pkt:12,uebe:'Blatt 5, Aufgabe 3; Blatt 4, Aufgabe 3 c)',kopf:`Ein Straßendamm hat eine Kronenbreite von ${M(d.kr)} und ist ${M(d.h)} hoch. Beide Böschungen sind 1 : 1,5 geneigt (Skizze).`,bild:bild6(d),bloecke:[
+    {teile:[{k:'a',text:'<b>Berechne</b>, wie weit jede Böschung nach außen geht. <b>Berechne</b> dann die Fußbreite des Damms.',felder:[F(x,'m',3,{vor:'je Böschung:'}),F(fu,'m',3,{vor:'Fußbreite:',folge:a=>d.kr+2*a['6a0']})]}],
+     hilfen:['1 : 1,5 heißt: Auf 1'+NB+'m Höhe geht die Böschung 1,5'+NB+'m zur Seite.',fo('Böschungsbreite = 1,5 · Höhe'),fo('Fußbreite = Kronenbreite + 2 · Böschungsbreite')+' Die Böschung gibt es links und rechts.'],
+     weg:[`je Böschung: 1,5 · ${M(d.h)} = <b>${M(x)}</b>`,`Fußbreite = ${M(d.kr)} + 2 · ${M(x)} = <b>${M(fu)}</b>`]},
+    {ersatz:`Falls a) fehlt: Rechne in b) mit einer Fußbreite von ${M(d.ers)} weiter.`,teile:[{k:'b',text:'<b>Berechne</b> die Querschnittsfläche des Damms in m².',felder:[F(A,'m²',6,{alt:[{v:AE}],folge:a=>(a['6a1']+d.kr)/2*d.h})]}],
+     hilfen:['Der Querschnitt ist ein Trapez. Die parallelen Seiten sind die Fußbreite und die Kronenbreite.',fo('A = (a + c) : 2 · h')+' a = Fußbreite; c = Kronenbreite; h = Höhe.','Rechne zuerst die Klammer, dann geteilt durch 2, dann mal Höhe.'],
+     weg:[fo('A = (a + c) : 2 · h'),`A = (${M(fu)} + ${M(d.kr)}) : 2 · ${M(d.h)}`,`A = ${M(mb)} · ${M(d.h)} = <b>${M2(A)}</b>`,`Mit dem Ersatzwert: (${M(d.ers)} + ${M(d.kr)}) : 2 · ${M(d.h)} = ${M2(AE)}`]}]}}
+
+function A7(d){
+  const k1=fx(d.L-d.ob,4),k2=fx(d.B-d.re,4),R=fx(d.L*d.B,4),T=fx(k1*k2/2,4),A=fx(R-T,4),AE=fx(d.ers[0]-d.ers[1],4);
+  return{nr:'7',titel:'Fläche mit abgeschnittener Ecke',pkt:10,uebe:'Blatt 5, Aufgabe 4',kopf:'Die skizzierte Stellfläche bekommt eine neue Asphaltdecke. Eine Ecke ist schräg abgeschnitten.',bild:bild7(d),bloecke:[
+    {teile:[{k:'a',text:`<b>Berechne</b> die Fläche des ganzen Rechtecks (${M(d.L)} × ${M(d.B)}).`,felder:[F(R,'m²',2)]}],hilfen:[fo('A = a · b')+' mit dem Maß unten und dem Maß links.'],weg:[`A = ${M(d.L)} · ${M(d.B)} = <b>${M2(R)}</b>`]},
+    {teile:[{k:'b',text:'<b>Bestimme</b> die beiden kurzen Seiten des abgeschnittenen Dreiecks aus den Maßen. <b>Berechne</b> die Fläche des Dreiecks.',felder:[F(k1,'m',1,{vor:'waagerechte Seite:'}),F(k2,'m',1,{vor:'senkrechte Seite:'}),F(T,'m²',3,{vor:'Dreieck:',folge:a=>a['7b0']*a['7b1']/2})]}],
+     hilfen:['Die kurzen Seiten sind die fehlenden Stücke: Maß unten minus obere Kante; Maß links minus rechte Kante.','Dreieck: '+fo('A = g · h : 2')+' Die beiden kurzen Seiten sind g und h.','Vergiss das „: 2“ nicht.'],
+     weg:[`waagerechte Seite: ${M(d.L)} − ${M(d.ob)} = <b>${M(k1)}</b>`,`senkrechte Seite: ${M(d.B)} − ${M(d.re)} = <b>${M(k2)}</b>`,`A = g · h : 2 = ${M(k1)} · ${M(k2)} : 2 = <b>${M2(T)}</b>`]},
+    {ersatz:`Falls a) oder b) fehlt: Rechne in c) mit ${M2(d.ers[0])} (Rechteck) und ${M2(d.ers[1])} (Dreieck) weiter.`,teile:[{k:'c',text:'<b>Berechne</b> die Asphaltfläche der Stellfläche in m².',felder:[F(A,'m²',3,{alt:[{v:AE}],folge:a=>a['7a0']-a['7b2']})]}],
+     hilfen:[fo('Stellfläche = ganzes Rechteck − Dreieck'),'Fehlt dir a) oder b), nimm die Ersatzwerte.'],
+     weg:[`${M2(R)} − ${M2(T)} = <b>${M2(A)}</b>`,`Mit den Ersatzwerten: ${M2(d.ers[0])} − ${M2(d.ers[1])} = ${M2(AE)}`]}]}}
+
+function A8(d){
+  const U=Math.PI*d.d,A=Math.PI*d.d*d.d/4,R=fx(d.ra*d.rb,4),H=Math.PI*d.rb*d.rb/8,G=R+H;
+  return{nr:'8',titel:'Kreis und Halbkreis',pkt:12,uebe:'Blatt 6, Aufgabe 1 und 4',kopf:'Nimm die π-Taste. Runde auf zwei Stellen nach dem Komma.',bloecke:[
+    {teile:[{k:'a',text:`Ein runder Schachtdeckel hat einen Durchmesser von ${M(d.d)}. <b>Berechne</b> den Umfang des Deckels in m.`,felder:[F(U,'m',3,{tol:0.015})]}],hilfen:['Umfang: '+fo('U = π · d'),'Nimm die π-Taste auf dem Taschenrechner. Runde erst am Ende.'],weg:[fo('U = π · d'),`U = π · ${M(d.d)} = <b>${M(U)}</b>`]},
+    {teile:[{k:'b',text:'<b>Berechne</b> die Fläche des Deckels in m².',felder:[F(A,'m²',3,{tol:0.015})]}],hilfen:['Fläche: '+fo('A = π · d² : 4'),'d² heißt d · d.','Tippe: π × d × d ÷ 4.'],weg:[fo('A = π · d² : 4'),`A = π · (${M(d.d)})² : 4 = <b>${M2(A)}</b>`]},
+    {teile:[{k:'c',text:`Ein Wendeplatz besteht aus einem Rechteck (${M(d.ra)} × ${M(d.rb)}) und einem Halbkreis an der kurzen Seite (Skizze). <b>Berechne</b> die Fläche des Wendeplatzes in m².`,bild:bild8(d),felder:[F(G,'m²',6,{tol:0.015})]}],
+     hilfen:['Zerlege: Rechteck + Halbkreis.','Der Durchmesser des Halbkreises ist die kurze Seite des Rechtecks.','Halbkreis: '+fo('A = π · d² : 8')],
+     weg:[`Rechteck: ${M(d.ra)} · ${M(d.rb)} = ${M2(R)}`,`Halbkreis: d = ${M(d.rb)}; A = π · (${M(d.rb)})² : 8 = ${M2(H)}`,`gesamt: ${M2(R)} + ${M2(H)} = <b>${M2(G)}</b>`]}]}}
+
+function mcZahl(werte,richtig,fmt){const s=werte.slice().sort((a,b)=>a-b),o=s.map(fmt);return{opts:o,richtig:s.indexOf(richtig),gut:new Set(o).size===5&&s.filter(v=>v===richtig).length===1}}
+function A9(d){
+  const v=d.v||['a','a','a','a'],q=d.ltg/d.st,n=Math.ceil(q-1e-9),qs=kz(fx(q,2)),zl=v[0]==='a'?[n-1,qs,n,n+1,n+2]:[n-2,n-1,qs,n,n+1];
+  const m1={opts:zl.map(x=>x+NB+'Stangen'),richtig:zl.indexOf(n),gut:Math.abs(q-n)>1e-6};
+  const wl=fx(d.pl*d.ms/100,4),wb=fx(d.pb*d.ms/100,4),fl2=fx(wl*wb,4),um2=fx(2*(wl+wb),4),pa=fx(d.pl*d.pb,4);
+  const m2=mcZahl(v[1]==='a'?[fx(pa*d.ms/10000,4),fx(wl+wb,4),um2,fx(fl2/2,4),fl2]:[um2,fl2,fx(2*fl2,4),fx(10*fl2,4),fx(pa*d.ms,4)],fl2,x=>kz(x)+NB+'m²');
+  const fl3=fx(d.g*d.h/2,4),m3=mcZahl(v[2]==='a'?[fx(d.g*d.h/4,4),fl3,fx(2*(d.g+d.h),4),fx(d.g*d.h,4),fx(2*d.g*d.h,4)]:[fl3,fx(d.g+d.h,4),fx(d.g*d.h,4),fx(2*(d.g+d.h),4),fx(2*d.g*d.h,4)],fl3,x=>M2(x));
+  const P=Math.PI,k=d.dk,fl4=fx(P*k*k/4,2),m4=mcZahl(v[3]==='a'?[fx(P*k/2,2),fx(P*k,2),fx(P*k*k/8,2),fl4,fx(P*k*k,2)]:[fx(P*k,2),fx(P*k*k/8,2),fl4,fx(P*k*k/2,2),fx(P*k*k,2)],fl4,x=>M2(x));
+  const B=(nr,text,mc,hilfen,weg)=>({teile:[{k:nr,lab:'9.'+nr,text:text,mc:mc,p:3}],hilfen:hilfen,weg:weg});
+  return{nr:'9',titel:'Prüfungsformat',pkt:12,uebe:'Aufgabe 5 auf Blatt 1, 3, 5 und 6',gut:m1.gut&&m2.gut&&m3.gut&&m4.gut,kopf:'Genau eine Antwort ist richtig. <b>Kreuze</b> genau eine Antwort an. Rechne im Heft.',bloecke:[
+    B('1',`Eine Leitung ist ${M(d.ltg)} lang. Die Rohre gibt es als Stangen mit ${M(d.st)} Länge. Wie viele Stangen müssen bestellt werden?`,m1,['Teile die Leitungslänge durch die Länge einer Stange.','Stangen gibt es nur ganz. Runde immer auf.'],[`${M(d.ltg)} : ${M(d.st)} = ${qs}`,`aufrunden: <b>${n} Stangen</b>`]),
+    B('2',`Im Lageplan (M 1 : ${d.ms}) ist eine Baugrube ${E(d.pl,'cm')} lang und ${E(d.pb,'cm')} breit eingezeichnet. Wie groß ist die Grundfläche der Baugrube in Wirklichkeit?`,m2,['Rechne zuerst Länge und Breite einzeln in die Wirklichkeit um (mal Maßstabszahl).','Wandle in m um. Dann '+fo('A = a · b'),'Nicht die Fläche im Plan umrechnen!'],
+      [`Länge: ${E(d.pl,'cm')} · ${d.ms} = ${E(d.pl*d.ms,'cm')} = ${M(wl)}`,`Breite: ${E(d.pb,'cm')} · ${d.ms} = ${E(d.pb*d.ms,'cm')} = ${M(wb)}`,`A = ${M(wl)} · ${M(wb)} = <b>${E(fl2,'m²')}</b>`]),
+    B('3',`Eine dreieckige Verkehrsinsel hat eine Grundseite von ${M(d.g)} und eine Höhe von ${M(d.h)}. Wie groß ist die Fläche der Verkehrsinsel?`,m3,['Dreieck: '+fo('A = g · h : 2')],[fo('A = g · h : 2'),`A = ${M(d.g)} · ${M(d.h)} : 2 = <b>${M2(fl3)}</b>`]),
+    B('4',`Ein rundes Klärbecken hat einen Durchmesser von ${E(k,'m')}. Wie groß ist die Grundfläche des Beckens?`,m4,['Kreisfläche aus dem Durchmesser: '+fo('A = π · d² : 4'),'Gegeben ist der Durchmesser, nicht der Radius.'],[fo('A = π · d² : 4'),`A = π · (${E(k,'m')})² : 4 = <b>${M2(fl4)}</b>`])]}}
+
+function AZ(d){
+  const w=um(d.wand,'cm','m'),D=fx(d.di+2*w,4),ring=x=>Math.PI*(x*x-d.di*d.di)/4,R=ring(D),RE=ring(d.ers),Aa=Math.PI*D*D/4,Ai=Math.PI*d.di*d.di/4;
+  return{nr:'Z',titel:'Kreisring',pkt:6,uebe:'Blatt 6, Aufgabe 2 und 3',kopf:`Ein Schachtring aus Beton hat innen einen Durchmesser von ${M(d.di)}. Die Wand ist ${E(d.wand,'cm')} dick (Skizze).`,bild:bildZ(d),bloecke:[
+    {teile:[{k:'a',text:'<b>Berechne</b> den Außendurchmesser des Schachtrings in m.',felder:[F(D,'m',2,{vor:'D ='})]}],hilfen:['Die Wand ist links und rechts. Wandle die Wanddicke in m um.',fo('D = Innendurchmesser + 2 · Wanddicke')],weg:[`Wand: ${E(d.wand,'cm')} = ${M(w)}`,`D = ${M(d.di)} + 2 · ${M(w)} = <b>${M(D)}</b>`]},
+    {ersatz:`Falls a) fehlt: Rechne in b) mit einem Außendurchmesser von ${M(d.ers)} weiter.`,teile:[{k:'b',text:'<b>Berechne</b> die Fläche der Betonwand (Kreisring) in m².',felder:[F(R,'m²',4,{tol:0.015,alt:[{v:RE}],folge:a=>Math.PI*(a['Za0']*a['Za0']-d.di*d.di)/4})]}],
+     hilfen:[fo('Kreisring = Außenkreis − Innenkreis'),fo('A = π · (D² − d²) : 4')+' D = Außendurchmesser; d = Innendurchmesser.','Rechne zuerst D · D und d · d, dann die Klammer.'],
+     weg:[fo('A = π · (D² − d²) : 4'),`A = π · ((${M(D)})² − (${M(d.di)})²) : 4 = <b>${M2(R)}</b>`,`Anderer Weg: Außenkreis ${M2(Aa)} − Innenkreis ${M2(Ai)}`,`Mit dem Ersatzwert: π · ((${M(d.ers)})² − (${M(d.di)})²) : 4 = ${M2(RE)}`]}]}}
+
+/* ---------- Probe: feste Zahlen ---------- */
+const PROBE={nr:'14',
+  a1:[[2.35,'m','cm'],[720,'mm','m'],[0.6,'km','m'],[45,'cm','mm'],[0.04,'m','cm'],[5,'m²','cm²'],[18000,'cm²','m²'],[260,'dm²','m²'],[0.9,'m²','dm²'],[8,'cm²','mm²']],
+  a2:{teile:[[2.8,'m'],[165,'cm'],[1450,'mm'],[5,'dm']],tiefe:1.8,sand:10,rohr:250},
+  a3:{L:11,B:7,cw:5,ch:3,ers:60},
+  a4:{r:[[100,'P',8.5],[50,'W',3.5],[500,'P',6]],d:[12,6],plan:[4.8,2.5],ers:[20,10]},
+  a5:{a:{n1:4,pl:'Rohre',sg:'Rohr',dat:'Rohren',m:45,n2:7},b:{typ:'lkw',x1:6,y:15,x2:9},c:{n:4,kg:350},d:6.5},
+  a6:{kr:4,h:2,ers:12},a7:{L:8,B:6,ob:5,re:3.5,ers:[50,4]},a8:{d:0.7,ra:9,rb:4},
+  a9:{ltg:27,st:6,ms:500,pl:3,pb:2.4,g:8,h:4.5,dk:10,v:['a','a','a','a']},z:{di:0.8,wand:12,ers:1.1}};
+function baue(d){return[A1(d.a1),A2(d.a2,d.nr),A3(d.a3,d.nr),A4(d.a4,d.nr),A5(d.a5),A6(d.a6),A7(d.a7),A8(d.a8),A9(d.a9),AZ(d.z)]}
+const PT=baue(PROBE),NRN=['1','2','3','4','5','6','7','8','9','Z'];
+
+/* ---------- Üben: neue Zahlen ---------- */
+const hausnr=()=>String(pick([3,5,9,11,16,18,23,27,35,40]));
+const ZUF={
+  a1(){return[[step(1.15,6.95,0.05),'m','cm'],[10*ri(12,98),'mm','m'],[ri(3,39)/10,'km','m'],[5*ri(3,19),'cm','mm'],[ri(2,9)/100,'m','cm'],[ri(2,9),'m²','cm²'],[1000*ri(12,98),'cm²','m²'],[10*ri(12,98),'dm²','m²'],[ri(2,9)/10,'m²','dm²'],[ri(2,9),'cm²','mm²']]},
+  a2(){return{teile:[[step(2.2,4.8,0.2),'m'],[5*ri(21,39),'cm'],[50*ri(21,39),'mm'],[ri(4,9),'dm']],tiefe:step(1.5,2.2,0.05),sand:pick([10,15]),rohr:pick([150,200,250,300,400])}},
+  a3(){for(;;){const L=ri(8,12),B=pick([5,5.5,6,6.5,7,7.5,8]),cw=ri(3,5),ch=pick([2,2.5,3,3.5]),s=[L,B-ch,cw,ch,L-cw,B],A=L*B-cw*ch;
+    if(new Set(s).size===6&&B-ch>=2&&Number.isInteger(A)){let e=Math.round(A/10)*10;if(e===A)e-=10;return{L:L,B:B,cw:cw,ch:ch,ers:e}}}},
+  a4(){for(;;){const ms=pick([50,100,200,250]),P=pick([2,4,5,6,8]),pl=step(4,6.8,0.2),pb=step(2,3.8,0.2),Lw=fx(pl*5,4),Bw=fx(pb*5,4);if(pl<pb+0.6)continue;
+    let e1=Math.round(Lw/10)*10,e2=Math.round(Bw/5)*5;if(e1===Lw)e1+=5;if(e2===Bw)e2+=5;if(fx(e1*e2,4)===fx(Lw*Bw,4))continue;
+    return{r:[[100,'P',ri(3,9)+0.5],[50,'W',ri(4,11)/2],[500,'P',ri(3,9)]],d:[fx(P*ms/100,4),P],plan:[pl,pb],ers:[e1,e2]}}},
+  a5(){const o=pick([{pl:'Rohre',sg:'Rohr',dat:'Rohren',m:[30,45,60,75]},{pl:'Schachtringe',sg:'Schachtring',dat:'Schachtringen',m:[250,300]},{pl:'Bordsteine',sg:'Bordstein',dat:'Bordsteinen',m:[60,70,80]},{pl:'Säcke Zement',sg:'Sack Zement',dat:'Säcken Zement',m:[25]}]);
+    const n1=ri(3,8);let n2=ri(2,12);while(n2===n1)n2=ri(2,12);
+    let b;for(;;){const arb=Math.random()<0.5,x1=arb?ri(3,8):pick([4,5,6,8]),x2=arb?ri(2,10):pick([6,8,9,10,12]),y=ri(4,16);if(x1!==x2&&(x1*y)%x2===0){b={typ:arb?'arb':'lkw',x1:x1,y:y,x2:x2};break}}
+    const n=pick([2,3,4,5]);return{a:{n1:n1,pl:o.pl,sg:o.sg,dat:o.dat,m:pick(o.m),n2:n2},b:b,c:{n:n,kg:(1+n)*10*ri(2,9)},d:step(4.5,14.5,0.5)}},
+  a6(){const kr=pick([4,5,6,7,8]),h=pick([2,2.4,3,3.6,4]),fu=fx(kr+3*h,4);return{kr:kr,h:h,ers:Number.isInteger(fu)?fu-1:Math.round(fu)}},
+  a7(){for(;;){const L=ri(7,12),B=ri(5,8),k1=pick([2,3,4]),k2=pick([1.5,2,2.5,3]),ob=L-k1,re=fx(B-k2,4);if(new Set([L,B,ob,re]).size<4||re<2)continue;
+    return{L:L,B:B,ob:ob,re:re,ers:[L*B+pick([-2,2,3]),Math.ceil(k1*k2/2)+1]}}},
+  a8(){return{d:pick([0.5,0.7,0.8,0.9,1,1.2]),ra:ri(8,15),rb:ri(4,7)}},
+  a9(){for(;;){const ms=pick([200,500]),g=ri(4,10),h=pick([2.5,3,3.5,4,4.5,5]);
+    const d={ltg:step(14.5,39.5,0.5),st:6,ms:ms,pl:ms===200?step(4,8,0.5):step(2,4,0.2),pb:ms===200?step(2,5,0.5):step(1,3,0.2),g:g,h:h,dk:pick([6,10,12,14,16,18,20]),
+      v:[pick(['a','b']),pick(['a','b']),(g+h>g*h/2)?pick(['a','b']):'a',pick(['a','b'])]};
+    if(d.pl>d.pb&&A9(d).gut)return d}},
+  z(){const di=pick([0.8,1,1.2,1.5]),wand=pick([10,12,14,15,16]),D=di+2*wand/100;return{di:di,wand:wand,ers:Math.ceil((D+0.03)*10)/10}}};
+const GEN={'1':()=>A1(ZUF.a1()),'2':()=>A2(ZUF.a2(),hausnr()),'3':()=>A3(ZUF.a3(),hausnr()),'4':()=>A4(ZUF.a4(),hausnr()),'5':()=>A5(ZUF.a5()),'6':()=>A6(ZUF.a6()),'7':()=>A7(ZUF.a7()),'8':()=>A8(ZUF.a8()),'9':()=>A9(ZUF.a9()),'Z':()=>AZ(ZUF.z())};
+
+/* ---------- Bewertung ---------- */
+function bewerteBlock(t,b,antw,mc){
+  const num={};for(const k in antw)num[k]=lies(antw[k]);const res=[];
+  b.teile.forEach(te=>{
+    if(te.mc){const id=t.nr+te.k,g=mc[id];res.push({id:id,te:te,typ:'mc',status:g==null?'leer':(g===te.mc.richtig?'ok':'falsch'),p:te.p,soll:te.mc.opts[te.mc.richtig],ein:g==null?'':te.mc.opts[g]})}
+    else te.felder.forEach((f,fi)=>{const id=t.nr+te.k+fi,roh=antw[id],v=num[id];let st='falsch';
+      if(roh==null||String(roh).trim()==='')st='leer';else if(ok(v,f.soll,f.tol))st='ok';else if(f.alt.some(a=>ok(v,a.v,f.tol)))st='ersatz';
+      else if(f.folge){const fv=f.folge(num);if(isFinite(fv)&&ok(v,fv,Math.max(f.tol,Math.abs(fv)*0.0006)))st='folge'}
+      res.push({id:id,te:te,f:f,typ:'feld',status:st,p:f.p,soll:zeig(f),ein:roh==null?'':String(roh)})})});
+  return res}
+const zaehlt=s=>s==='ok'||s==='ersatz'||s==='folge';
+function bewerte(t,antw,mc){let r=[];t.bloecke.forEach(b=>{r=r.concat(bewerteBlock(t,b,antw,mc))});return r}
+
+/* ---------- Oberfläche ---------- */
+let Z={},U=null,ansicht='start',app=null;
+function laden(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+function sichern(){try{localStorage.setItem(KEY,JSON.stringify(Z))}catch(e){}}
+function fig(b){return `<figure>${b.svg}<figcaption>${b.cap}</figcaption></figure>`}
+function formeln(){return `<details class="card nodruck"><summary>Formeln</summary><table class="form">
+<tr><td>Rechteck: ${fo('A = a · b')} ${fo('U = 2 · a + 2 · b')}</td></tr><tr><td>Dreieck: ${fo('A = g · h : 2')}</td></tr><tr><td>Trapez: ${fo('A = (a + c) : 2 · h')}</td></tr>
+<tr><td>Kreis: ${fo('U = π · d')} ${fo('A = π · d² : 4')}</td></tr><tr><td>Halbkreis: ${fo('A = π · d² : 8')}</td></tr><tr><td>Kreisring: ${fo('A = π · (D² − d²) : 4')}</td></tr>
+<tr><td>Maßstab: ${fo('wirkliches Maß = Planmaß · Maßstabszahl')}</td></tr><tr><td>Böschung 1 : n: ${fo('waagerechter Abstand = n · Höhe')}</td></tr></table>
+<p class="klein">Diese Formeln stehen auch in der Klassenarbeit auf dem Blatt. Dein Tabellenbuch darfst du benutzen.</p></details>`}
+function titelZeile(t){return(t.nr==='Z'?'Zusatzaufgabe':'Aufgabe '+t.nr)+': '+t.titel}
+function htmlAufgabe(t,modus,antw,mc){
+  antw=antw||{};mc=mc||{};
+  let h=`<section class="card"><h2>${titelZeile(t)}<span class="pkt">${t.nr==='Z'?'bis zu '+t.pkt+' Extrapunkte':t.pkt+' Punkte'}</span></h2>`;
+  if(t.kopf)h+=`<p>${t.kopf}</p>`;if(t.bild)h+=fig(t.bild);
+  t.bloecke.forEach((b,bi)=>{
+    h+=`<div class="block" data-b="${bi}">`;if(b.kopf)h+=`<p>${b.kopf}</p>`;if(b.bild)h+=fig(b.bild);if(b.ersatz)h+=`<p class="ersatz">↳ ${b.ersatz}</p>`;if(b.raster)h+='<div class="gitter">';
+    b.teile.forEach(te=>{
+      h+='<div class="teil">';if(te.text)h+=`<p><b>${te.lab||te.k+')'}</b> ${te.text}</p>`;if(te.bild)h+=fig(te.bild);
+      if(te.mc){const id=t.nr+te.k;te.mc.opts.forEach((o,oi)=>{h+=modus==='druck'?`<p>☐ ${o}</p>`:`<label class="opt" id="o-${id}-${oi}"><input type="radio" name="mc-${id}" data-mc="${id}" value="${oi}"${mc[id]===oi?' checked':''}>${o}</label>`})}
+      else te.felder.forEach((f,fi)=>{const id=t.nr+te.k+fi,vor=(b.raster?`<b>${te.k})</b> `:'')+(f.vor||'');
+        h+=modus==='druck'?`<div class="feld">${vor} <span class="leer"></span> ${f.nach}</div>`:`<div class="feld"><label>${vor} <span class="eu"><input type="text" inputmode="decimal" autocomplete="off" data-id="${id}" value="${esc(antw[id])}" aria-label="Ergebnis ${te.k}"> ${f.nach}</span></label><span class="mark" id="m-${id}"></span></div>`});
+      h+='</div>'});
+    if(b.raster)h+='</div>';
+    if(modus==='druck'&&!b.raster)h+='<div class="rechenfeld"></div>';
+    if(modus==='ueben')h+=`<div class="steuer" id="st-${bi}">${steuer(bi)}</div>`;
+    h+='</div>'});
+  return h+'</section>'}
+
+/* Start */
+function zeigeStart(){
+  const p=Z.probe;let k;
+  if(!p)k='<button class="haupt" data-akt="probe-start">Probe starten</button>';
+  else if(p.abgegeben)k='<button class="haupt" data-akt="geh" data-ziel="#auswertung">Auswertung ansehen</button><button data-akt="neu-frage">Probe neu beginnen</button>';
+  else k='<button class="haupt" data-akt="geh" data-ziel="#probe/0">Probe fortsetzen</button><button data-akt="neu-frage">Probe neu beginnen</button>';
+  app.innerHTML=`<section class="card"><h2>Probe für die Klassenarbeit</h2>
+<p>Die Probe hat dieselben Aufgabentypen wie die Klassenarbeit, nur mit anderen Zahlen: 9 Aufgaben und eine Zusatzaufgabe; 80 Minuten; 100 Punkte.</p>
+<ul><li><b>Schreibe</b> den Rechenweg in dein Heft: Formel; Zahlen mit Einheit einsetzen; Ergebnis mit Einheit. In der Klassenarbeit gibt es dafür Punkte.</li>
+<li><b>Trage</b> hier nur das Ergebnis ein. Kommazahlen schreibst du mit Komma.</li>
+<li>Erlaubt sind Taschenrechner und Tabellenbuch. Die Formeln findest du unter „Formeln“.</li>
+<li>In der Probe gibt es keine Hilfen. Die Auswertung mit allen Lösungswegen kommt nach dem Abgeben.</li></ul>
+<div class="knopfe">${k}</div><div id="frage"></div><p class="klein"><a href="#druck">Druckansicht der Probe</a></p></section>
+<section class="card"><h2>Üben mit neuen Zahlen</h2><p>Jede Aufgabe gibt es mit neuen Zahlen, so oft du willst. Dazu gibt es Hilfen in drei Stufen und den Lösungsweg.</p>
+<div class="knopfe"><button class="haupt" data-akt="geh" data-ziel="#ueben">Üben</button></div></section>${formeln()}`}
+
+/* Probe */
+function hatAntwort(t){const p=Z.probe;return t.bloecke.some(b=>b.teile.some(te=>te.mc?p.mc[t.nr+te.k]!=null:te.felder.some((f,fi)=>String(p.antw[t.nr+te.k+fi]||'').trim()!=='')))}
+function navProbe(i){return `<div class="nav nodruck"><button data-akt="geh" data-ziel="#probe/${i-1}"${i===0?' disabled':''} aria-label="zurück">◀</button><button data-akt="geh" data-ziel="#start" aria-label="Startseite">⌂</button><span class="mitte">${i<9?'Aufgabe '+(i+1)+' von 9':'Zusatzaufgabe'}</span><button data-akt="geh" data-ziel="#probe/${i+1}"${i===9?' disabled':''} aria-label="weiter">▶</button></div>`}
+function chips(i){return '<div class="chips nodruck">'+PT.map((t,j)=>`<button data-akt="geh" data-ziel="#probe/${j}" class="${j===i?'hier':''}${hatAntwort(t)?' da':''}">${t.nr}</button>`).join('')+'</div>'}
+function zeigeProbe(i){const p=Z.probe;app.innerHTML=navProbe(i)+chips(i)+'<p class="klein">Rechenweg ins Heft; hier nur das Ergebnis eintragen.</p>'+htmlAufgabe(PT[i],'probe',p.antw,p.mc)+formeln()+navProbe(i)+
+  '<div class="knopfe nodruck"><button data-akt="abgabe-frage">Probe abgeben und auswerten</button></div><div id="frage"></div>'}
+function felderZahl(){let alle=0,voll=0;const p=Z.probe;PT.forEach(t=>t.bloecke.forEach(b=>b.teile.forEach(te=>{if(te.mc){alle++;if(p.mc[t.nr+te.k]!=null)voll++}else te.felder.forEach((f,fi)=>{alle++;if(String(p.antw[t.nr+te.k+fi]||'').trim()!=='')voll++})})));return[voll,alle]}
+function restSek(){return DAUER*60-Math.floor((Date.now()-Z.probe.start)/1000)}
+function uhr(){const u=document.getElementById('uhr');if(!u)return;if(!Z.probe||Z.probe.abgegeben){u.textContent='';return}const r=restSek();u.textContent=r<=0?'Zeit um':Math.floor(r/60)+':'+String(r%60).padStart(2,'0')}
+
+/* Auswertung */
+function zeigeAuswertung(){
+  const p=Z.probe;let sum=0,zus=0,tab='',det='';
+  PT.forEach((t,ti)=>{const res=bewerte(t,p.antw,p.mc),got=res.reduce((s,r)=>s+(zaehlt(r.status)?r.p:0),0);if(t.nr==='Z')zus=got;else sum+=got;
+    const schwach=got<t.pkt/2;
+    tab+=`<tr><td>${titelZeile(t)}</td><td class="z">${kz(got)} / ${t.nr==='Z'?'+'+t.pkt:t.pkt}</td></tr>`;
+    det+=`<details class="card"><summary>${titelZeile(t)}: ${kz(got)} von ${t.pkt} Punkten${schwach?' (üben!)':''}</summary>`;
+    t.bloecke.forEach(b=>{const r=bewerteBlock(t,b,p.antw,p.mc);
+      det+='<div class="block">'+r.map(x=>{const lab=x.te.lab||x.te.k+')',vor=x.f&&x.f.vor?' '+x.f.vor:'';
+        if(x.status==='leer')return `<p><b>${lab}</b>${vor} nicht bearbeitet. Richtig ist: <b>${x.soll}</b></p>`;
+        if(x.status==='ok')return x.typ==='mc'?`<p><b>${lab}</b> <span class="mark ok">✓</span> ${x.ein} ist richtig.</p>`:`<p><b>${lab}</b>${vor} <span class="mark ok">✓</span> ${esc(x.ein)} ist richtig (${x.soll}).</p>`;
+        if(x.status==='ersatz')return `<p><b>${lab}</b>${vor} <span class="mark ok">✓</span> ${esc(x.ein)}: mit dem Ersatzwert richtig gerechnet.</p>`;
+        if(x.status==='folge')return `<p><b>${lab}</b>${vor} <span class="mark ok">✓</span> ${esc(x.ein)}: mit deinem eigenen Wert richtig weitergerechnet. Mit dem richtigen Wert davor wäre es ${x.soll}.</p>`;
+        return `<p><b>${lab}</b>${vor} <span class="mark falsch">✗</span> ${esc(x.ein)} ist falsch. Richtig ist: <b>${x.soll}</b></p>`}).join('')+
+        `<div class="loes"><div class="loes-kopf">Lösungsweg</div>${b.weg.map(z=>`<div class="zeile">${z}</div>`).join('')}</div></div>`});
+    det+=`<p class="ueb"><b>Übe mit:</b> ${t.uebe}</p><div class="knopfe"><button data-akt="geh" data-ziel="#ueben/${t.nr}">Diese Aufgabe mit neuen Zahlen üben</button></div></details>`});
+  const ges=Math.min(100,sum+zus),fz=felderZahl();
+  app.innerHTML=`<div class="nav nodruck"><button data-akt="geh" data-ziel="#start" aria-label="Startseite">⌂</button><span class="mitte">Auswertung der Probe</span></div>
+<section class="card"><p class="gross">${kz(ges)} von 100 Punkten</p><p>Aufgabe 1 bis 9: ${kz(sum)} Punkte; Zusatzaufgabe: ${kz(zus)} Extrapunkte. Mehr als 100 Punkte gibt es nicht.</p>
+<p>Bearbeitungszeit: ${p.dauer} ${p.dauer===1?'Minute':'Minuten'}; ausgefüllte Felder: ${fz[0]} von ${fz[1]}.</p>
+<p class="klein">So wäre die Note in der Klassenarbeit: 1 ab 85 Punkten; 2 ab 70; 3 ab 55; 4 ab 45; 5 ab 9; 6 darunter.</p>
+<p class="klein">Die Seite prüft nur die Ergebnisse. In der Klassenarbeit gibt es auch Punkte für den Rechenweg; ein Ergebnis ohne Rechenweg bringt dort nur 1 Punkt.</p>
+<table class="erg"><tr><th>Aufgabe</th><th class="z">Punkte</th></tr>${tab}</table></section>
+<p><b>Öffne</b> jede Aufgabe, bei der „üben!“ steht. <b>Vergleiche</b> deinen Rechenweg im Heft mit dem Lösungsweg.</p>${det}
+<div class="knopfe nodruck"><button class="haupt" data-akt="geh" data-ziel="#ueben">Weiter üben mit neuen Zahlen</button></div>`}
+
+/* Üben */
+function neuU(nr){return{nr:nr,t:GEN[nr](),antw:{},mc:{},h:{},auf:{},versucht:{},wegAuf:{},fb:{},gez:{}}}
+function steuer(bi){
+  const b=U.t.bloecke[bi],n=U.h[bi]||0;let h='<div class="knopfe nodruck"><button class="pruef" data-akt="pruefen" data-b="'+bi+'">Prüfen</button>';
+  b.hilfen.forEach((x,hi)=>{h+=`<button class="hilfeknopf b${hi+1}${hi===n?' naechste':''}${hi<n?' erledigt':''}" data-akt="hilfe" data-b="${bi}" data-h="${hi}"${hi<=n?'':' disabled'}>💡 Hilfe ${hi+1}${hi<n?(U.auf[bi+'-'+hi]?' ▲':' ▼'):''}</button>`});
+  const frei=U.versucht[bi]||n>=b.hilfen.length;
+  h+=`<button class="wegknopf" data-akt="weg" data-b="${bi}"${frei?'':' disabled'}>Lösungsweg${U.wegAuf[bi]?' ▲':''}</button></div>`;
+  if(!frei)h+='<p class="klein nodruck">Der Lösungsweg öffnet sich nach dem Prüfen oder nach der letzten Hilfe.</p>';
+  if(U.fb[bi])h+=U.fb[bi];
+  b.hilfen.forEach((x,hi)=>{if(U.auf[bi+'-'+hi])h+=`<div class="hilfe h${hi+1}"><b>Hilfe ${hi+1}:</b> ${x}</div>`});
+  if(U.wegAuf[bi])h+=`<div class="loes"><div class="loes-kopf">Lösungsweg</div>${b.weg.map(z=>`<div class="zeile">${z}</div>`).join('')}</div>`;
+  return h}
+function navUeben(nr){const i=NRN.indexOf(nr);return `<div class="nav nodruck"><button data-akt="geh" data-ziel="#ueben/${NRN[i-1]}"${i===0?' disabled':''} aria-label="zurück">◀</button><button data-akt="geh" data-ziel="#start" aria-label="Startseite">⌂</button><button data-akt="geh" data-ziel="#ueben">Liste</button><span class="mitte">Üben</span><button data-akt="geh" data-ziel="#ueben/${NRN[i+1]}"${i===9?' disabled':''} aria-label="weiter">▶</button></div>`}
+function zeigeUeben(nr){if(!U||U.nr!==nr)U=neuU(nr);app.innerHTML=navUeben(nr)+htmlAufgabe(U.t,'ueben',U.antw,U.mc)+'<div class="knopfe nodruck"><button class="haupt" data-akt="neue-zahlen">Neue Zahlen</button></div>'+formeln()+navUeben(nr)}
+function zeigeListe(){const z=Z.z||{};app.innerHTML=`<div class="nav nodruck"><button data-akt="geh" data-ziel="#start" aria-label="Startseite">⌂</button><span class="mitte">Üben mit neuen Zahlen</span></div>
+<section class="card"><p><b>Wähle</b> eine Aufgabe. Jede Aufgabe gibt es mit neuen Zahlen, so oft du willst.</p><div class="knopfe liste">${PT.map(t=>`<button data-akt="geh" data-ziel="#ueben/${t.nr}">${titelZeile(t)}${z[t.nr]?`<span class="z">✓ ${z[t.nr]} richtig</span>`:''}<br><span class="klein">${t.uebe}</span></button>`).join('')}</div></section>`}
+function zeigeDruck(){app.innerHTML='<div class="knopfe nodruck"><button class="haupt" data-akt="drucken">Drucken</button><button data-akt="geh" data-ziel="#start">Zurück</button></div><p class="nurdruck"><b>Probe für die Klassenarbeit Mathematik (Blatt 1 bis 6).</b> 80 Minuten; 100 Punkte; Taschenrechner und Tabellenbuch erlaubt. Name: ______________________</p>'+PT.map(t=>htmlAufgabe(t,'druck')).join('')}
+
+/* Ereignisse */
+function markiere(res){res.forEach(r=>{if(r.typ==='feld'){const i=app.querySelector('input[data-id="'+r.id+'"]'),m=document.getElementById('m-'+r.id);if(!i)return;i.classList.remove('ok','falsch');m.className='mark';m.textContent='';
+    if(r.status==='leer')return;const gut=zaehlt(r.status);i.classList.add(gut?'ok':'falsch');m.classList.add(gut?'ok':'falsch');m.textContent=gut?'✓':'✗'}
+  else{r.te.mc.opts.forEach((o,oi)=>{const l=document.getElementById('o-'+r.id+'-'+oi);if(l)l.classList.remove('ok','falsch')});const g=U.mc[r.id];if(g!=null){const l=document.getElementById('o-'+r.id+'-'+g);if(l)l.classList.add(r.status==='ok'?'ok':'falsch')}}})}
+function klick(e){
+  const k=e.target.closest('[data-akt]');if(!k||k.disabled)return;const a=k.dataset.akt,bi=k.dataset.b!=null?+k.dataset.b:null,frage=document.getElementById('frage');
+  if(a==='geh'){location.hash=k.dataset.ziel;return}
+  if(a==='probe-start'){Z.probe={start:Date.now(),antw:{},mc:{},abgegeben:0};sichern();location.hash='#probe/0';return}
+  if(a==='neu-frage'){frage.innerHTML='<div class="ersatz"><p>Probe neu beginnen: Deine Eingaben werden gelöscht.</p><div class="knopfe"><button data-akt="neu-ja">Ja, neu beginnen</button><button data-akt="frage-zu">Nein</button></div></div>';return}
+  if(a==='frage-zu'){frage.innerHTML='';return}
+  if(a==='neu-ja'){Z.probe={start:Date.now(),antw:{},mc:{},abgegeben:0};sichern();if(location.hash==='#probe/0')route();else location.hash='#probe/0';return}
+  if(a==='abgabe-frage'){const fz=felderZahl();frage.innerHTML=`<div class="ersatz"><p>Du hast ${fz[0]} von ${fz[1]} Feldern ausgefüllt. Nach dem Abgeben kannst du nichts mehr ändern.</p><div class="knopfe"><button data-akt="abgabe-ja">Ja, abgeben</button><button data-akt="frage-zu">Nein, weiterrechnen</button></div></div>`;frage.scrollIntoView({block:'center'});return}
+  if(a==='abgabe-ja'){Z.probe.abgegeben=Date.now();Z.probe.dauer=Math.max(1,Math.round((Z.probe.abgegeben-Z.probe.start)/60000));sichern();location.hash='#auswertung';return}
+  if(a==='drucken'){window.print();return}
+  if(a==='neue-zahlen'){const nr=U.nr;U=neuU(nr);zeigeUeben(nr);window.scrollTo(0,0);return}
+  if(bi==null||!U)return;const b=U.t.bloecke[bi],st=document.getElementById('st-'+bi);
+  if(a==='pruefen'){const res=bewerteBlock(U.t,b,U.antw,U.mc);markiere(res);U.versucht[bi]=true;
+    if(res.every(r=>r.status==='leer'))U.fb[bi]='<p class="fb falsch">Trage zuerst ein Ergebnis ein.</p>';
+    else if(res.every(r=>zaehlt(r.status))){let z='';if(res.some(r=>r.status==='ersatz'))z=' Du hast mit dem Ersatzwert gerechnet.';if(res.some(r=>r.status==='folge'))z=' Du hast mit deinem eigenen Wert richtig weitergerechnet; der Wert davor stimmt noch nicht.';
+      U.fb[bi]='<p class="fb ok">✓ Richtig.'+z+'</p>';if(!U.gez[bi]){U.gez[bi]=true;Z.z=Z.z||{};Z.z[U.nr]=(Z.z[U.nr]||0)+1;sichern()}}
+    else U.fb[bi]='<p class="fb falsch">✗ Noch nicht alles richtig. Rechne nach oder nimm eine Hilfe.</p>'}
+  else if(a==='hilfe'){const hi=+k.dataset.h,n=U.h[bi]||0,key=bi+'-'+hi;if(hi===n){U.h[bi]=n+1;U.auf[key]=true}else U.auf[key]=!U.auf[key]}
+  else if(a==='weg'){U.wegAuf[bi]=!U.wegAuf[bi]}
+  st.innerHTML=steuer(bi)}
+function eingabe(e){const t=e.target;if(t.dataset.id){const s=ansicht==='probe'?Z.probe:U;if(!s)return;s.antw[t.dataset.id]=t.value;if(ansicht==='probe')sichern()}
+  else if(t.dataset.mc){const s=ansicht==='probe'?Z.probe:U;if(!s)return;s.mc[t.dataset.mc]=+t.value;if(ansicht==='probe')sichern()}}
+function route(){
+  const p=(location.hash.replace('#','')||'start').split('/');
+  if(p[0]==='probe'){if(!Z.probe||Z.probe.abgegeben){ansicht='start';zeigeStart()}else{ansicht='probe';zeigeProbe(Math.max(0,Math.min(9,parseInt(p[1],10)||0)))}}
+  else if(p[0]==='auswertung'&&Z.probe&&Z.probe.abgegeben){ansicht='auswertung';zeigeAuswertung()}
+  else if(p[0]==='ueben'){ansicht='ueben';if(p[1]&&GEN[p[1]])zeigeUeben(p[1]);else zeigeListe()}
+  else if(p[0]==='druck'){ansicht='druck';zeigeDruck()}
+  else{ansicht='start';zeigeStart()}
+  window.scrollTo(0,0);uhr()}
+function start(){app=document.getElementById('app');Z=laden();app.addEventListener('click',klick);app.addEventListener('input',eingabe);app.addEventListener('change',eingabe);window.addEventListener('hashchange',route);setInterval(uhr,1000);route()}
+if(typeof document!=='undefined')start();
+if(typeof module!=='undefined')module.exports={PT:PT,PROBE:PROBE,GEN:GEN,ZUF:ZUF,baue:baue,bewerte:bewerte,bewerteBlock:bewerteBlock,zaehlt:zaehlt,lies:lies,de:de,kz:kz,fx:fx,zeig:zeig,A9:A9,NRN:NRN};
+</script>
+</body>
+</html>

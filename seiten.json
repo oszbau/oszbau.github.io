@@ -4,7 +4,8 @@
     "grs": "Grundstufe Tiefbau",
     "grs/lf2": "LF 2 – Bauwerke erschließen und gründen",
     "fhr": "Fachhochschulreife",
-    "fhr/mathe": "Mathematik"
+    "fhr/mathe": "Mathematik",
+    "grs/mathe": "Mathematik"
   },
   "seiten": [
     {
@@ -34,6 +35,15 @@
       "status": "online",
       "gelistet": true,
       "quelle": "3. FHR-DQ - Mathe - GÜR\\000. CO\\FHR-Pruefungstraining\\_Upload-GitHub"
+    },
+    {
+      "pfad": "grs/mathe/ka1train/",
+      "titel": "KA-Training Mathematik (Blatt 1 bis 6)",
+      "fassung": "Lernseite mit Probe und Übungsaufgaben",
+      "stand": "2026-11-25",
+      "status": "online",
+      "gelistet": true,
+      "quelle": "CO GRS\\Mathe GRS26.4\\_Upload-GitHub\\ka1train"
     }
   ]
 }
